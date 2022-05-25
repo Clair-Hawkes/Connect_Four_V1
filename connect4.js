@@ -109,11 +109,15 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  let piece = document.createElement("div");
+  let cell = document.querySelector(`#${y}-${x}`);
+  cell.append(piece);
 }
 
 /** endGame: announce game end */
 
 function endGame(msg) {
+
   // TODO: pop up alert message
 }
 
