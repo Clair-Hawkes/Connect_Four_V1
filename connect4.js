@@ -89,11 +89,20 @@ function makeHtmlBoard() {
   }
 }
 
-/** findSpotForCol: given column x, return bottom empty y (null if filled) */
+/** findSpotForCol: given column x, return bottom empty y (null if filled)
+ * findSpotForCol takes a number (0-(width-1))
+*/
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 5
-  return 5;
+  for(y=HEIGHT-1;y>=0;y--){
+    if(gameBoard[y][x] === null){
+      return y;
+    }
+  }
+
+  //Loop exits after not finding an empty slot
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
