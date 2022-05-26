@@ -104,7 +104,8 @@ function findSpotForCol(x) {
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   let piece = document.createElement("div");
-  let cell = document.querySelector(`#${y}-${x}`);
+  let cell = document.getElementById(`${y}-${x}`);
+  console.log(cell);
   cell.append(piece);
 }
 
