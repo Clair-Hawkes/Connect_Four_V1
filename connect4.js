@@ -141,6 +141,12 @@ function handleClick(evt) {
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
+  //If the top row is filled then all rows below it must be as well.
+  //So oly the top row is checked.
+  if(gameBoard[0].every(cell => cell !== null)){
+    endGame();
+  }
+
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
