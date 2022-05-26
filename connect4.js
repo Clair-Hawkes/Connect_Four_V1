@@ -172,7 +172,7 @@ function checkForWin() {
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
     // [ [y, x], [y, x], [y, x], [y, x] ]
-    for(cell of cells){
+    for(let cell of cells){
       const [y,x] = cell;
       console.log(y,x);
 
