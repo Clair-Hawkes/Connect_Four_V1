@@ -23,10 +23,10 @@ function makeBoard() {
   const board = [];
 
   //Creating rows
-  for(let x = 0;x < WIDTH;x++){
+  for(let y = 0; y < HEIGHT;y++){
     let row = [];
     //Creating columns
-    for(let y =0;y < HEIGHT;y++){
+    for(let x=0;x < WIDTH;x++){
       row.push(null);
     }
     board.push(row);
@@ -65,19 +65,14 @@ function makeHtmlBoard() {
     let row = document.createElement('tr');
     row.setAttribute("id", "row");
 
-
     //Fill with cells
     for (let x = 0; x < WIDTH; x++) {
       // TODO: Create a table cell element and assign to a "cell" variable
       let cell = document.createElement('td');
 
-
-
       // TODO: add an id, y-x, to the above table cell element
       // you'll use this later, so make sure you use y-x
       cell.setAttribute("id", `${y}-${x}`);
-
-
 
       // TODO: append the table cell to the table row
       row.append(cell);
@@ -100,7 +95,6 @@ function findSpotForCol(x) {
       return y;
     }
   }
-
   //Loop exits after not finding an empty slot
   return null;
 }
@@ -117,8 +111,8 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(msg) {
-
   // TODO: pop up alert message
+  alert(msg);
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -136,6 +130,8 @@ function handleClick(evt) {
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
   placeInTable(y, x);
+  gameBoard[y][x] = currPlayer;
+
 
   // check for win
   if (checkForWin()) {
@@ -147,6 +143,12 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+  if (currPlayer === 1) {
+    currPlayer = 2;
+  }
+  else {
+    currPlayer = 1;
+  }
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
