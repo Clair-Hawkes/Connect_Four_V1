@@ -171,8 +171,23 @@ function checkForWin() {
 
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
+    // [ [y, x], [y, x], [y, x], [y, x] ]
+    for(cell of cells){
+      const [y,x] = cell;
+      console.log(y,x);
 
+      try{
+        gameBoard[y][x]
+      } catch(error) {
+        return false;
+      }
 
+      if(gameBoard[y][x] !== currPlayer){
+        return false;
+      }
+    }
+
+    return true;
   }
 
   // using HEIGHT and WIDTH, generate "check list" of coordinates
@@ -187,9 +202,10 @@ function checkForWin() {
 
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
       let vert = [[y,x],[y+1,x],[y+2,x],[y+3,x]];
-      let diagDL = [[y+3,x],[y+2,x+1],[y+1,x+2],[y,x+3]];
-      diagDL = [[y,x],[y+1,x-1],[y+2,x-2],[y+3,x-3]]
-      let diagDR = [[y,x],[y+1,x+1],[y+2,x+2],[y+3,x+3]];
+      // let diagDL = [[y+3,x],[y+2,x+1],[y+1,x+2],[y,x+3]];
+      // diagDL = [[y,x],[y+1,x-1],[y+2,x-2],[y+3,x-3]]
+      // let diagDR = [[y,x],[y+1,x+1],[y+2,x+2],[y+3,x+3]];
+
       // let diagDL = [[y,x],[y-1,x+1],[y-2,x+2],[y-3,x+3]];
       // let diagDR = [[y,x],[y+1,x-1],[y+2,x-2],[y+3,x-3]];
 
@@ -211,3 +227,41 @@ makeHtmlBoard();
 //3 | 0
 
 //y | x
+
+// //Primary Planning stage no code used
+
+// // No move = 0
+// // Red move = 1
+// // Blue move = 2
+
+// //Move tracker:1 = red player, 2 = blue player
+
+// const moveTracker = 2;
+
+// gameBoard =
+// [
+//   [1,0,0,0],//index 0
+//   [1,0,0,0],//index 1
+//   [1,0,0,0],//index 2
+//   [1,0,0,0],//index 3
+//   [1,0,0,0],//index 4
+//   [1,0,0,0],//index 5
+
+
+// ];
+
+// //Winning test cases from Index [3,0]
+// //If ([3,1] === 1){
+// //if(3,2)
+
+// //Check with includes
+// //let array = [Val at3,0, ]
+// const ind3 = gameBoard[3].join('');
+// for(let i =0;i<gameBoard.length;i++){
+//   if (ind3 === '1111'||ind3==='2222'){
+
+// }
+
+
+// }
+
